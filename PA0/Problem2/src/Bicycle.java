@@ -7,6 +7,7 @@ public class Bicycle extends Vehicle {
         this.avgSpeed = avgSpeed;
     }
 
+    // Changes verb and time display to be more bicycle appropriate
     @Override
     public void travel(double distance) {
         double travelTime = distance / avgSpeed;

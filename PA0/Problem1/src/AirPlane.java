@@ -11,6 +11,7 @@ public class AirPlane {
         this.range = range;
     }
 
+    // Default constructor
     public AirPlane() {
         new AirPlane(
                 "Boeing",

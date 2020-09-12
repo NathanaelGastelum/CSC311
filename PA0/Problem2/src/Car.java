@@ -7,6 +7,7 @@ public class Car extends Vehicle {
         this.avgSpeed = avgSpeed;
     }
 
+    // Adjusts verb to be car specific
     @Override
     public void travel(double distance) {
         System.out.printf("You have driven your %s %.1f miles in %.1f hours \n", this.toString(), distance, distance / avgSpeed);

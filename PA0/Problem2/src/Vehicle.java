@@ -2,6 +2,7 @@ public class Vehicle {
     private String make;
     private String model;
 
+    // Base class constructor
     public Vehicle(String make, String model) {
         this.make = make;
         this.model = model;
