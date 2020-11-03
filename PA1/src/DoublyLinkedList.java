@@ -14,8 +14,7 @@ public class DoublyLinkedList<E> implements PositionalList<E> {
 			next = n;
 		}
 
-		public E getElement() throws IllegalStateException {
-			if (next == null) throw new IllegalStateException("Position no longer valid");
+		public E getElement(){
 			return element;
 		}
 
@@ -152,18 +151,16 @@ public class DoublyLinkedList<E> implements PositionalList<E> {
 	@Override
 	public Iterator<E> iterator() {
 		return new Iterator<E>() {
-			Node<E> current = validate(first());
+			Iterator<Position<E>> posIterator = positions().iterator();
 
 			@Override
 			public boolean hasNext() {
-				return current != null;
+				return posIterator.hasNext();
 			}
 
 			@Override
 			public E next() {
-				Node<E> temp = current;
-				current = current.getNext();
-				return temp.getElement();
+				return posIterator.next().getElement();
 			}
 		};
 	}
@@ -171,7 +168,7 @@ public class DoublyLinkedList<E> implements PositionalList<E> {
 	// Position iterator
 	public Iterator<Position<E>> positionIterator() {
 		return new Iterator<Position<E>>() {
-			private Position<E> cursor = first( );
+			private Position<E> cursor = first();
 			private Position<E> recent = null;
 
 			@Override
