@@ -54,4 +54,11 @@ public class CircularArrayQueue<E> implements Queue<E> {
 		size--;
 		return answer;
 	}
+
+	// Rotates the front element of the queue to the back of the queue.
+	public void rotate() {
+		if (!isEmpty()) {
+			enqueue(dequeue());
+		}
+	}
 }

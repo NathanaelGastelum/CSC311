@@ -13,8 +13,19 @@ public class Josephus {
 	 * @return return a doubly linked list in the order when the players were out of the game. 
 	 *         the last one in the list is the winner.  
 	 */
-	public DoublyLinkedList<String> order(String[] persons, int k ) {
-		//TODO: implement this method with the help of CircularArrayQueue
-		return null;
+	public static DoublyLinkedList<String> order(String[] persons, int k) {
+		DoublyLinkedList<String> list = new DoublyLinkedList<>();
+		CircularArrayQueue<String> queue = new CircularArrayQueue<>(persons.length);
+		for (String s : persons) {
+			queue.enqueue(s);
+		}
+
+		while (!queue.isEmpty()) {
+			for (int i = 0; i < k - 1; i++) {
+				queue.rotate();
+			}
+			list.addLast(queue.dequeue());
+		}
+		return list;
 	}	
 }

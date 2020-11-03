@@ -28,18 +28,23 @@ public class Main{
         }
 
         // CircularArrayQueue Test
-        CircularArrayQueue<String> queue = new CircularArrayQueue<>(4);
-        queue.enqueue("first");
-        queue.enqueue("second");
-        queue.enqueue("third");
-        queue.enqueue("fourth");
+        CircularArrayQueue<String> queue1 = new CircularArrayQueue<>(4);
+        queue1.enqueue("first");
+        queue1.enqueue("second");
+        queue1.enqueue("third");
+        queue1.enqueue("fourth");
 
-        System.out.println("\nQueue Test");
-        while (!queue.isEmpty()) {
-            System.out.println(queue.dequeue());
+        System.out.println("\nRotate Test");
+        queue1.rotate();
+        while (!queue1.isEmpty()) {
+            System.out.println(queue1.dequeue());
         }
+
+        // Josephus Test, expect alice to win when k = 3, bob when k = 10
+        String[] people = {"Alice", "Bob", "Cindy", "Doug", "Ed", "Fred"};
+        DoublyLinkedList<String> result = Josephus.order(people, 3);
+        System.out.println("\nWinner: " + result.last().getElement());
+        result = Josephus.order(people, 10);
+        System.out.println("Winner: " + result.last().getElement());
     }
-
-
-
 }
